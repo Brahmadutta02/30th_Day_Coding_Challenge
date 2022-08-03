@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact From To Email using JavaScript</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h1>GET IN TOUCH</h1>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Email-id" required>
+            <input type="text" id="phone" placeholder="Phone no." required>
+            <textarea id="message" rows="4" placeholder="How Can We Help You"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendEmail(){
+                Email.send({
+        Host : "smtp.gmail.com",
+        Username : "brahmadalaidutta@gmail.com",
+        Password : "123456789",
+        To : 'brahmaduttadalai012@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "New Contact From Enquiry",
+        Body : "And this is the body"
+    }).then(
+        message => alert(message)
+    );
+            }
+        </script>
+    </body>
+</html>
